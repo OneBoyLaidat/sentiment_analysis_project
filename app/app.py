@@ -19,20 +19,20 @@ def get_sentiment(text):
 df['sentiment'] = df['ticket_text'].apply(get_sentiment)
 
 # Sidebar Filters
-category = st.sidebar.multiselect(Filter by Category, options=df['category'].unique(), default=df['category'].unique())
+category = st.sidebar.multiselect("Filter by Category", options=df['category'].unique(), default=df['category'].unique())
 filtered_df = df[df['category'].isin(category)]
 
 # Metrics
 col1, col2, col3 = st.columns(3)
-col1.metric(Total Tickets, len(filtered_df))
-col2.metric(Negative Sentiment, f{len(filtered_df[filtered_df['sentiment']=='Negative'])})
-col3.metric(Positive Sentiment, f{len(filtered_df[filtered_df['sentiment']=='Positive'])})
+col1.metric("Total Tickets", len(filtered_df))
+col2.metric("Negative Sentiment", f"{len(filtered_df[filtered_df['sentiment']=='Negative'])}")
+col3.metric("Positive Sentiment", f"{len(filtered_df[filtered_df['sentiment']=='Positive'])}")
 
 # Visuals
-st.subheader(Sentiment Distribution)
+st.subheader("Sentiment Distribution")
 fig, ax = plt.subplots()
 filtered_df['sentiment'].value_counts().plot(kind='pie', autopct='%1.1f%%', ax=ax, colors=['#ff9999','#66b3ff','#99ff99'])
 st.pyplot(fig)
 
-st.subheader(Raw Ticket Data)
+st.subheader("Raw Ticket Data")
 st.dataframe(filtered_df)
