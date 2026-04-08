@@ -31,9 +31,10 @@ col3.metric("Positive Sentiment", f"{len(filtered_df[filtered_df['sentiment']=='
 # Visuals
 st.subheader("Sentiment Distribution")
 color_map = {'Positive': '#28a745', 'Negative': '#ff4b4b', 'Neutral': '#b2b2b2'}
+counts = filtered_df['sentiment'].value_counts()
 colors = [color_map[label] for label in counts.index]
 fig, ax = plt.subplots()
-filtered_df['sentiment'].value_counts().plot(kind='pie', autopct='%1.1f%%', ax=ax, colors=colors)
+counts.plot(kind='pie', autopct='%1.1f%%', ax=ax, colors=colors)
 st.pyplot(fig)
 
 st.subheader("Raw Ticket Data")
