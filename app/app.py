@@ -14,7 +14,7 @@ df = pd.read_csv('..datacomplaints.csv')
 # Sentiment Logic
 def get_sentiment(text):
     score = TextBlob(text).sentiment.polarity
-    return 'Positive' if score  0 else ('Negative' if score  0 else 'Neutral')
+    return 'Positive' if score > 0 else ('Negative' if score < 0 else 'Neutral')
 
 df['sentiment'] = df['ticket_text'].apply(get_sentiment)
 
