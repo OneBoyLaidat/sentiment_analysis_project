@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title=Phlex Sentiment Dashboard, layout=wide)
 
-st.title(📊 Phlex Payment Customer Sentiment Analysis)
+st.title(Phlex Payment Customer Sentiment Analysis)
 st.markdown(Analysis of transaction complaints from Oct - Dec 2025.)
 
 # Load Data
