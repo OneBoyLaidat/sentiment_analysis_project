@@ -9,7 +9,7 @@ st.title("Phlex Payment Customer Sentiment Analysis")
 st.markdown("Analysis of transaction complaints from Oct - Dec 2025.")
 
 # Load Data
-df = pd.read_csv('..datacomplaints.csv')
+df = pd.read_csv('..data/complaints.csv')
 
 # Sentiment Logic
 def get_sentiment(text):
