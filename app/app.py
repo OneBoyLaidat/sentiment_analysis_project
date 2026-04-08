@@ -88,7 +88,7 @@ with row1_col2:
     plt.xticks(rotation=45)
     st.pyplot(fig2)
 
-st.subheader("Sentiment Trend (Oct - Dec 2025)")
+st.subheader("Sentiment Trend (Aug - Nov 2025)")
 # Resample to daily counts
 trend_df = filtered_df.set_index('timestamp').resample('D')['sentiment'].value_counts().unstack(fill_value=0)
 st.line_chart(trend_df, color=["#ff4b4b", "#b2b2b2", "#28a745"])
